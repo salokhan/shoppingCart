@@ -1,0 +1,20 @@
+.viewport {
+  height: 90vh;
+  width: 80%;
+}
+
+.p-detail {
+  height: 18px;
+}
+
+
+.wfc-tile {
+  border-style: solid;
+  border-width: thin;
+  border-color: #dde2e4;
+  cursor: pointer;
+  height: 182px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

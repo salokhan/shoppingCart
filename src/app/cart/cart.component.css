@@ -1,0 +1,4 @@
+.cart-list {
+  height: 85vh;
+  overflow-y: auto;
+}

@@ -1,0 +1,26 @@
+<ng-container *ngIf="totalBill > 0">
+  <h4 class='text-white bg-dark ml-3 mr-4 text-center'>Cart</h4>
+  <div class='cart-list'>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngFor="let product of cartItems | async index as i">
+      <div class="my-list" *ngIf='product !== null'>
+        <div class="card mt-2">
+          <div class="card-body">
+            <h5 class="card-title">{{product.item.name}}</h5>
+            <p class="card-text mb-0"><small class="text-muted"><b>Prie:</b> {{product.item.price | currency:'USD'}}</small></p>
+            <p class="card-text mb-0"><small class="text-muted"><b>Discount:</b> {{product.item.discount}}%</small></p>
+            <p class="card-text mb-0"><small class="text-muted"><b>Total items added:</b> {{product.count}}</small></p>
+            <p class="card-text mb-0"><small class="text-muted"><b>Total Amount:</b> {{product.totalAmount}}</small></p>
+
+          </div>
+          <div class="d-flex justify-content-center mb-1">
+            <a (click)="removeFromCart(product,i)" class="btn btn-danger">Remove</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <b>Total: {{totalBill}}</b>
+  </div>
+</ng-container>
