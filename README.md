@@ -1,3 +1,7 @@
+# How to run
+First of all clone the application, run `npm i`
+once the node packages are installed, run the api mock server by running the command `npm run start:apiserver`
+in the end just run `npm start`, to see the application in browser using `localhost:4200`
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
