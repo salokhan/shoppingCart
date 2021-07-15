@@ -34,18 +34,26 @@ export class CustomerProductService {
   }
 
   getProductsWithPagination(page_number: number = 0,
-    number_of_entries: number = 10,
+    number_of_entries: number = 10, filter: string = ''
   ): Observable<any[]> {
+    if(filter == ''){
     return this.http.get<any[]>(this.productsURL + `?_page=${page_number}&_limit=${number_of_entries}`)
       .pipe(
         catchError(this.handleError<any[]>('getProducts', []))
       );
+    } else {
+      return this.http.get<any[]>(this.productsURL + `?_page=${page_number}&_limit=${number_of_entries}&q=${filter}`)
+      .pipe(
+        catchError(this.handleError<any[]>('getProducts', []))
+      );
+    }
 
   }
 
 
-  searchProducts(filter: string): Observable<any[]> {
-    return this.http.get<any[]>(this.productsURL + `?q=${filter}`)
+  searchProducts(filter: string, page_number: number = 0,
+    number_of_entries: number = 10): Observable<any[]> {
+    return this.http.get<any[]>(this.productsURL + `?q=${filter}&_page=${page_number}&_limit=${number_of_entries}`)
       .pipe(
         catchError(this.handleError<any[]>('getProducts', []))
       );
